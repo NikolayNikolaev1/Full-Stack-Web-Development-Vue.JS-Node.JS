@@ -1,19 +1,37 @@
 <template>
-<nav>
-    <ul>
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/about">About</router-link></li>
-        <li><router-link to="/contact">Contact</router-link></li>
-    </ul>
-</nav>
+    <v-toolbar fixed class="indigo" dark>
+        <v-toolbar-title class="mr-4" dark @click="navigateTo('home')">Playlist App</v-toolbar-title>
+
+        <v-toolbar-item>
+            <v-btn flat dark router to="/songs">My Songs</v-btn>
+        </v-toolbar-item>
+
+        <v-spacer></v-spacer>
+
+        <v-toolbar-items>
+            <v-btn flat dark router to="/login">Login</v-btn>
+            <v-btn flat dark router to="/signup">Sign up</v-btn>
+        </v-toolbar-items>
+    </v-toolbar>
 </template>
 
 <script>
 export default {
-    
+    methods: {
+        navigateTo (route) {
+            this.$route.push(route)
+        }
+    }
 }
 </script>
 
-<style>
+<style scoped>
+.mr-4 {
+    cursor: pointer;
+}
+
+.mr-4:hover {
+    color: black;
+}
 
 </style>
